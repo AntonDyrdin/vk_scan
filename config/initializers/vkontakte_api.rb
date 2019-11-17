@@ -1,10 +1,9 @@
 VkontakteApi.configure do |config|
   # Authorization parameters (not needed when using an external authorization):
-    # config.app_id       = '6703822'
-    # config.app_secret   = 'E0TfENEKyaBPGuapEgI1'
-    # config.redirect_uri = 'http://localhost:3000/login'
+    config.app_id       = '6703822'
+    config.app_secret   = 'E0TfENEKyaBPGuapEgI1'
+    config.redirect_uri = 'http://vk-scan.herokuapp.com/callback'
 
-    #@vk = VkontakteApi.authorize(type: :app_server)
   # Faraday adapter to make requests with:
   # config.adapter = :net_http
   

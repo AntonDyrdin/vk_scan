@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
       srand
       session[:state] ||= Digest::MD5.hexdigest(rand.to_s)
       # и URL страницы авторизации
-      @vk_url = 'https://oauth.vk.com/authorize?client_id=6703822&display=page&redirect_uri=https://vk-scan.herokuapp.com/callback&scope=wall,offline,messages&response_type=token&v=5.52'
+      #@vk_url = 'https://oauth.vk.com/authorize?client_id=6703822&display=page&redirect_uri=&scope=wall,offline,messages&response_type=token&v=5.52'
+      @vk_url = VkontakteApi.authorization_url(scope: [:friends, :groups, :offline, :notify], state: session[:state])
   end
 
   def callback
