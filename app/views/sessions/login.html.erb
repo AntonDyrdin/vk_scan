@@ -1,0 +1,23 @@
+<%= link_to @vk_url, class: 'btn btn-primary' do %>
+  <i class="icon-home icon-white"></i>
+  Войти через ВКонтакте
+<% end %>
+
+<div>
+<%= link_to 'https://oauth.vk.com/authorize?client_id=6703822&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=wall,offline,messages&response_type=token&v=5.52', class: 'btn btn-primary' do %>
+  oauth.vk.com
+<% end %>
+</div>
+
+<%= form_tag '/callback', method: :get do %>
+  <div>
+    <%= label_tag :token %>
+    <%= text_field_tag :token %>
+  </div>
+  <div>
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+    <%= @state %>
+  </div>
+  <%= submit_tag 'Submit' %>
+<%end%>
