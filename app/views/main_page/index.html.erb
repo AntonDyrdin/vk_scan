@@ -1,3 +1,5 @@
-
-<%= image_tag(@user.photo, width: 20) %>
-<%= "#{@user.first_name} #{@user.last_name}" %>
+<% if $auth_token != nil %>
+Дом, милый дом
+<% else %>
+Не выполнен вход
+<% end %>

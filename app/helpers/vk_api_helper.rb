@@ -6,7 +6,7 @@ module VkApiHelper
       ids += user.vk_id + ','
     end
 
-    uri = URI.parse("https://api.vk.com/method/users.get" + '?user_ids=' + ids + "&fields=online&access_token=" + @session[:token] + "&v=5.74")
+    uri = URI.parse("https://api.vk.com/method/users.get" + '?user_ids=' + ids + "&fields=online&access_token=" + $auth_token + "&v=5.74")
     
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
