@@ -10,7 +10,7 @@ class MainPageController < ApplicationController
         if $auth_token
             $online_scan_pid = fork do 
                 p "FORK"
-                scan(auth_token)
+                scan($auth_token)
             end
         end
     end

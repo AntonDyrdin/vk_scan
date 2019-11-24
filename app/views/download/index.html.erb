@@ -1,0 +1,7 @@
+<% @file_names.each do |file_name| %>
+<div>
+<%= link_to ENV['root_uri'] + '/api/get_file?file_name=' + file_name, class: 'btn btn-primary' do %>
+<%= file_name %>
+<% end %>
+</div>
+<% end %>
