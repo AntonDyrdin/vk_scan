@@ -5,11 +5,11 @@ module OnlineMonitoringJob
   include VkApiHelper
 
   #OnlineMonitoring.perform_now
-  def scan()
+  def scan(auth_token)
     while true
       begin
         users = User.all
-        users_data = get_users(users)['response']
+        users_data = get_users(users, auth_token)['response']
 
         users_data.each do |user|
 

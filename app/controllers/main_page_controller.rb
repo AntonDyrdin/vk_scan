@@ -7,14 +7,11 @@ class MainPageController < ApplicationController
     end
 
     def start_scan_by_fork
-        @online_scan_pid = fork do 
-            p "FORK"
-            scan()
+        if $auth_token
+            $online_scan_pid = fork do 
+                p "FORK"
+                scan(auth_token)
+            end
         end
-    end
-
-    def start_scan_by_new_thread
-        
-        Thread.new(scan())
     end
 end

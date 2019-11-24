@@ -8,4 +8,9 @@ Rails.application.routes.draw do
 
   get 'start_scan_by_fork' , to: 'main_page#start_scan_by_fork'
   get 'start_scan_by_new_thread' , to: 'main_page#start_scan_by_new_thread'
+
+  # http://localhost:3000/get_file?file_name=WhenOnline277275242.txt
+  namespace :api do
+    get 'get_file', to: 'files#get_file'
+  end
 end
