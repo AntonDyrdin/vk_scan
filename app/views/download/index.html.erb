@@ -1,7 +1,5 @@
-<% @file_names.each do |file_name| %>
-<div>
-<%= link_to ENV['root_uri'] + '/api/get_file?file_name=' + file_name, class: 'btn btn-primary' do %>
-<%= file_name %>
-<% end %>
+<% @file_names.each do |file_path| %>
+<div class="ref">
+    <a class="btn_text" href="<%= ENV['root_url'] %>/api/get_file?file_name=<%= file_path %>" download> <%= file_path %> </a>
 </div>
 <% end %>

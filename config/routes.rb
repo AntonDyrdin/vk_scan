@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   
   get 'download' , to: 'download#index'
 
-
-  get 'start_scan_by_fork' , to: 'main_page#start_scan_by_fork'
-  get 'start_scan_by_new_thread' , to: 'main_page#start_scan_by_new_thread'
+  post 'start_scan_by_fork' , to: 'main_page#start_scan_by_fork'
 
   # http://localhost:3000/get_file?file_name=WhenOnline277275242.txt
   namespace :api do

@@ -1,5 +1,14 @@
 <% if $auth_token != nil %>
-Дом, милый дом
+VkScan
+
+<div class="btn" onclick="startScan();"> 
+    <strong class="btn_text"> Начать мониторинг </strong>
+</div>
+
 <% else %>
-Не выполнен вход
+    <div>
+        <%= link_to ENV['root_uri'] + '/login', class: 'btn' do %>
+        <strong class="btn_text"> Войти </strong>
+        <% end %>
+    </div>
 <% end %>

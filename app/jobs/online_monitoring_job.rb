@@ -18,29 +18,32 @@ module OnlineMonitoringJob
           if ((user_record.state == "offline" && user['online'] == 0) || (user_record.state == "online" && user['online'] == 1 && user['online_mobile'] == nil) || (user_record.state == "mobile" && user['online'] == 1 && user['online_mobile'] == 1))
 
           else
+            now = DateTime.now + 3.hours
+            now_strftime = now.strftime("%d.%m.%Y %H:%M:%S")
+
             if (user['online'] == 1 && user['online_mobile'] == nil)
               #  06.01.2019 16:07:50
-                Rails.logger.info(user['id'].to_s + " " + DateTime.now.strftime("%d.%m.%Y %H:%M:%S") + " " + "Online");
+                Rails.logger.info(user['id'].to_s + " " + now_strftime + " " + "Online");
 
-                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(DateTime.now.strftime("%d.%m.%Y %H:%M:%S")+ " " + "Online") }
+                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(now_strftime + " " + "Online") }
 
                 user_record.state = 'online'
                 user_record.save
             end
 
             if (user['online'] == 1 && user['online_mobile'] == 1)
-                Rails.logger.info(user['id'].to_s + " " + DateTime.now.strftime("%d.%m.%Y %H:%M:%S") + " " + "Mobile");
+                Rails.logger.info(user['id'].to_s + " " + now_strftime + " " + "Mobile");
 
-                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(DateTime.now.strftime("%d.%m.%Y %H:%M:%S")+ " " + "Mobile") }
+                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(noww.strftime("%d.%m.%Y %H:%M:%S") + " " + "Mobile") }
 
                 user_record.state = 'mobile'
                 user_record.save
             end
 
             if (user['online'] == 0)
-              Rails.logger.info(user['id'].to_s + " " + DateTime.now.strftime("%d.%m.%Y %H:%M:%S") + " " + "Offline");
+              Rails.logger.info(user['id'].to_s + " " + now_strftime + " " + "Offline");
 
-              File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts( DateTime.now.strftime("%d.%m.%Y %H:%M:%S")+ " " + "Offline") }
+              File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts( now_strftime + " " + "Offline") }
 
               user_record.state = 'offline'
               user_record.save
