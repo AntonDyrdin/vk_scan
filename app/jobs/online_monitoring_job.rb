@@ -34,7 +34,7 @@ module OnlineMonitoringJob
             if (user['online'] == 1 && user['online_mobile'] == 1)
                 Rails.logger.info(user['id'].to_s + " " + now_strftime + " " + "Mobile");
 
-                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(noww.strftime("%d.%m.%Y %H:%M:%S") + " " + "Mobile") }
+                File.open("storage/WhenOnline" + user['id'].to_s + ".txt", 'a') { |f| f.puts(now_strftime + " " + "Mobile") }
 
                 user_record.state = 'mobile'
                 user_record.save
