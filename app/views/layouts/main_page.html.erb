@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VkScan</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag "jquery-3.4.1" %>
+    <%= javascript_include_tag "main_page.index" %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
