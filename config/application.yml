@@ -13,4 +13,4 @@ production:
   root_uri: 'http://vk-scan.herokuapp.com'
 
 development:
-  root_uri: 'http://localhost:3000'
+  root_uri: 'http://localhost:3001'

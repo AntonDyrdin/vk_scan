@@ -18,7 +18,7 @@ module OnlineMonitoringJob
           if ((user_record.state == "offline" && user['online'] == 0) || (user_record.state == "online" && user['online'] == 1 && user['online_mobile'] == nil) || (user_record.state == "mobile" && user['online'] == 1 && user['online_mobile'] == 1))
 
           else
-            now = DateTime.now + 3.hours
+            now = DateTime.now
             now_strftime = now.strftime("%d.%m.%Y %H:%M:%S")
 
             if (user['online'] == 1 && user['online_mobile'] == nil)
